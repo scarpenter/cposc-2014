@@ -6,7 +6,7 @@ var Master = React.createClass({
   ],
 
   getInitialState: function() {
-    return { displays: this.initialData };
+    return { sensors: this.initialData };
   },
 
   updateData: function() {
@@ -14,7 +14,7 @@ var Master = React.createClass({
     var newData = this.initialData.map(function(row) {
       return { detailId: row.detailId, speed: self.refs.speed.getDOMNode().value, direction: self.refs.direction.getDOMNode().value };
     });
-    this.setState({ displays: newData });
+    this.setState({ sensors: newData });
   },
 
   render: function() {
@@ -31,7 +31,7 @@ var Master = React.createClass({
           </p>
         </div>
         <button type="button" onClick={this.updateData}>Update!</button>
-        <DetailList displays={this.state.displays}/>
+        <DetailList sensors={this.state.sensors}/>
       </div>
     );
   }
@@ -39,7 +39,7 @@ var Master = React.createClass({
 
 var DetailList = React.createClass({
   render: function() {
-    var rows = this.props.displays.map(function(row){
+    var rows = this.props.sensors.map(function(row){
       return <DetailRow detailId={row.detailId} speed={row.speed} direction={row.direction} />;
     });
     return (
