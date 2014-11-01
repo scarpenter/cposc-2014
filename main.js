@@ -49,6 +49,7 @@ var DetailList = React.createClass({
             <th>Id</th>
             <th>Speed</th>
             <th>Direction</th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
@@ -60,12 +61,18 @@ var DetailList = React.createClass({
 });
 
 var DetailRow = React.createClass({
+  showId: function() {
+    window.alert("My Id is " + this.props.detailId);
+  },
   render: function() {
     return (
       <tr>
         <td>{this.props.detailId}</td>
         <td>{this.props.speed}</td>
         <td>{this.props.direction}</td>
+        <td>
+          <button type="button" onClick={this.showId}>Show My Id</button>
+        </td>
       </tr>
     );
   }
