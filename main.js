@@ -40,7 +40,7 @@ var Master = React.createClass({
 var DetailList = React.createClass({
   render: function() {
     var rows = this.props.sensors.map(function(row){
-      return <DetailRow detailId={row.detailId} speed={row.speed} direction={row.direction} />;
+      return <DetailRow detailId={row.detailId} speed={row.speed} direction={row.direction} key={row.detailId}/>;
     });
     return (
       <table className="detail-table">
